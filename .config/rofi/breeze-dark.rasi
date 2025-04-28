@@ -94,6 +94,11 @@
     border-color:     @hard-green;
 }
 
+element-icon {
+    size:   1em;
+    margin: 0px 10px 0px 0px;
+}
+
 #mode-switcher {
     spacing: 0;
 }
