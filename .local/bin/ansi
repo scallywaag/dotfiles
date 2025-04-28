@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "< ANSI colors for current terminal theme >"
+for i in {0..15}; do
+  printf "\e[38;5;${i}m Color $i \e[0m\n"
+done
+
