@@ -99,6 +99,7 @@ awful.spawn.with_shell("xrandr --output " .. d2 .. " --mode 1920x1080 --rate 240
 -- set up mouse - remove acceleration (wired+wireless)
 awful.spawn.with_shell("xinput --set-prop " .. m1 .. " 338 0, 1")
 awful.spawn.with_shell("xinput --set-prop " .. m2 .. " 338 0, 1")
+awful.spawn.with_shell("xsetroot -cursor_name left_ptr")
 
 -- set up keyboard
 awful.spawn.with_shell("xset r rate 300 50")

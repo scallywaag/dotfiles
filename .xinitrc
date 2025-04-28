@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export XCURSOR_THEME="Bibata-Modern-Ice"
+xrdb ~/.Xresources
+xsetroot -cursor_name left_ptr
 
 i() { pgrep -x "$1" > /dev/null || "$@" & disown; }
 

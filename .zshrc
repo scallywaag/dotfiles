@@ -90,6 +90,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
+export XCURSOR_PATH="${XCURSOR_PATH}:/usr/share/icons"
+export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
 
 export GOPATH=$HOME/.go
 export GOBIN=$HOME/.local/bin
