@@ -594,6 +594,8 @@ clientkeys = gears.table.join(
 -- TODO: oh look, already tag and screen.
 -- also can change position of monitor change to middle like in i3
 local function view_tag_and_focus(tag_name, screen_number)
+	local old_coords = mouse.coords() -- Save current position
+	local old_screen = mouse.screen
 	local s = screen[screen_number]
 	local tag = awful.tag.find_by_name(s, tag_name)
 
@@ -604,43 +606,21 @@ local function view_tag_and_focus(tag_name, screen_number)
 			client.focus:raise()
 		end
 
-		local geo = s.geometry
-		-- Move mouse to center
-		mouse.coords({
-			x = geo.x + geo.width / 2,
-			y = geo.y + geo.height / 2,
-		}, true)
+		if old_screen.index ~= s.index then
+			-- Calculate relative position on old screen
+			local old_geo = old_screen.geometry
+			local rel_x = old_coords.x - old_geo.x
+			local rel_y = old_coords.y - old_geo.y
+
+			-- Move mouse to the same relative position on the new screen
+			local new_geo = s.geometry
+			mouse.coords({
+				x = new_geo.x + rel_x,
+				y = new_geo.y + rel_y,
+			}, true)
+		end
 	end
 end
-
--- local function view_tag_and_focus(tag_name, screen_number)
--- 	local old_coords = mouse.coords() -- Save current position
--- 	local old_screen = mouse.screen
--- 	local s = screen[screen_number]
--- 	local tag = awful.tag.find_by_name(s, tag_name)
---
--- 	if tag then
--- 		tag:view_only()
--- 		client.focus = awful.client.focus.history.get(s, 0)
--- 		if client.focus then
--- 			client.focus:raise()
--- 		end
---
--- 		if old_screen.index ~= s.index then
--- 			-- Calculate relative position on old screen
--- 			local old_geo = old_screen.geometry
--- 			local rel_x = old_coords.x - old_geo.x
--- 			local rel_y = old_coords.y - old_geo.y
---
--- 			-- Move mouse to the same relative position on the new screen
--- 			local new_geo = s.geometry
--- 			mouse.coords({
--- 				x = new_geo.x + rel_x,
--- 				y = new_geo.y + rel_y,
--- 			}, true)
--- 		end
--- 	end
--- end
 
 local function move_client_to_tag(tag_name)
 	local target_screen = nil
@@ -790,8 +770,15 @@ awful.rules.rules = {
 	{
 		rule = { class = "Viewnior" },
 		properties = {
-			-- width = 900,
-			-- height = 900,
+			floating = true,
+			ontop = true,
+			placement = awful.placement.centered,
+		},
+	},
+
+	{
+		rule = { class = "Thunar" },
+		properties = {
 			floating = true,
 			ontop = true,
 			placement = awful.placement.centered,
