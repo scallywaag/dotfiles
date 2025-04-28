@@ -6,7 +6,7 @@
 
 * {
     /* Base */
-    default-background: rgba(49, 52, 56, 100%); // <- change this for transparency
+    default-background: rgba(49, 52, 56, 69%); // <- change this for transparency
     default-foreground: rgba(239, 240, 241, 100%);
     default-border: rgba(97, 101, 105, 100%);
     alternative-background: rgba(35, 38, 41, 100%);
