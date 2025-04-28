@@ -1,0 +1,10 @@
+[Added Associations]
+image/png=viewnior.desktop;org.gnome.gThumb.desktop;nsxiv.desktop;
+
+[Default Applications]
+image/png=viewnior.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome-stable.desktop
+x-scheme-handler/unknown=google-chrome-stable.desktop
+
