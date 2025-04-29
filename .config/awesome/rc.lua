@@ -471,33 +471,33 @@ globalkeys = gears.table.join(
 	awful.key({ mod, "Shift" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	-- awful.key({ super, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
-	awful.key({ super }, "l", function()
+	awful.key({ mod }, "]", function()
 		awful.tag.incmwfact(0.05)
 	end, { description = "increase master width factor", group = "layout" }),
-	awful.key({ super }, "h", function()
+	awful.key({ mod }, "[", function()
 		awful.tag.incmwfact(-0.05)
 	end, { description = "decrease master width factor", group = "layout" }),
 
-	-- awful.key({ super, "Shift" }, "h", function()
-	-- 	awful.tag.incnmaster(1, nil, true)
-	-- end, { description = "increase the number of master clients", group = "layout" }),
-	-- awful.key({ super, "Shift" }, "l", function()
-	-- 	awful.tag.incnmaster(-1, nil, true)
-	-- end, { description = "decrease the number of master clients", group = "layout" }),
+	awful.key({ mod, "Shift" }, "[", function()
+		awful.tag.incnmaster(1, nil, true)
+	end, { description = "increase the number of master clients", group = "layout" }),
+	awful.key({ mod, "Shift" }, "]", function()
+		awful.tag.incnmaster(-1, nil, true)
+	end, { description = "decrease the number of master clients", group = "layout" }),
 
-	awful.key({ super, "Control" }, "h", function()
+	awful.key({ mod, "Control" }, "[", function()
 		awful.tag.incncol(1, nil, true)
 	end, { description = "increase the number of columns", group = "layout" }),
-	awful.key({ super, "Control" }, "l", function()
+	awful.key({ mod, "Control" }, "]", function()
 		awful.tag.incncol(-1, nil, true)
 	end, { description = "decrease the number of columns", group = "layout" }),
 
-	awful.key({ super }, "space", function()
-		awful.layout.inc(1)
-	end, { description = "select next", group = "layout" }),
-	awful.key({ super, "Shift" }, "space", function()
-		awful.layout.inc(-1)
-	end, { description = "select previous", group = "layout" }),
+	-- awful.key({ super }, "space", function()
+	-- 	awful.layout.inc(1)
+	-- end, { description = "select next", group = "layout" }),
+	-- awful.key({ super, "Shift" }, "space", function()
+	-- 	awful.layout.inc(-1)
+	-- end, { description = "select previous", group = "layout" }),
 
 	awful.key({ super, "Control" }, "n", function()
 		local c = awful.client.restore()
