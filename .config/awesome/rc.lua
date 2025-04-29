@@ -513,7 +513,7 @@ globalkeys = gears.table.join(
 	-- 	awful.layout.inc(-1)
 	-- end, { description = "select previous", group = "layout" }),
 
-	awful.key({ super, "Control" }, "n", function()
+	awful.key({ mod, "Shift" }, "n", function()
 		local c = awful.client.restore()
 		-- Focus restored client
 		if c then
@@ -607,26 +607,26 @@ clientkeys = gears.table.join(
 		c.ontop = not c.ontop
 	end, { description = "toggle keep on top", group = "client" }),
 
-	awful.key({ super }, "n", function(c)
+	awful.key({ mod }, "n", function(c)
 		-- The client currently has the input focus, so it cannot be
 		-- minimized, since minimized clients can't have the focus.
 		c.minimized = true
 	end, { description = "minimize", group = "client" }),
 
-	awful.key({ super }, "m", function(c)
+	awful.key({ mod }, "m", function(c)
 		c.maximized = not c.maximized
 		c:raise()
 	end, { description = "(un)maximize", group = "client" }),
 
-	awful.key({ super, "Control" }, "m", function(c)
-		c.maximized_vertical = not c.maximized_vertical
-		c:raise()
-	end, { description = "(un)maximize vertically", group = "client" }),
-
-	awful.key({ super, "Shift" }, "m", function(c)
+	awful.key({ mod, "Shift" }, "m", function(c)
 		c.maximized_horizontal = not c.maximized_horizontal
 		c:raise()
-	end, { description = "(un)maximize horizontally", group = "client" })
+	end, { description = "(un)maximize horizontally", group = "client" }),
+
+	awful.key({ mod, "Control" }, "m", function(c)
+		c.maximized_vertical = not c.maximized_vertical
+		c:raise()
+	end, { description = "(un)maximize vertically", group = "client" })
 )
 
 -- TODO: oh look, already tag and screen.
