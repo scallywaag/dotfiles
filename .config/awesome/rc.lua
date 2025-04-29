@@ -388,6 +388,8 @@ globalkeys = gears.table.join(
 				label = label:gsub("%s+", "")
 				if label ~= "" then
 					awful.spawn("kitty --class " .. label)
+				else
+					awful.spawn("kitty")
 				end
 			end
 		)
