@@ -381,6 +381,18 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 -- TODO: split keybinds between apps and client/tag control
 globalkeys = gears.table.join(
+	awful.key({ super, "Shift" }, "Return", function()
+		awful.spawn.easy_async_with_shell(
+			[[rofi -dmenu -p "Insert label:" -theme ~/.config/rofi/prompt.rasi]],
+			function(label)
+				label = label:gsub("%s+", "")
+				if label ~= "" then
+					awful.spawn("kitty --class " .. label)
+				end
+			end
+		)
+	end, { description = "launch kitty with class via rofi", group = "launcher" }),
+
 	awful.key({ mod }, "/", function()
 		awful.spawn("rofi -show drun -show-icons")
 	end, { description = "rofi app launcher", group = "launcher" }),

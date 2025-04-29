@@ -1,0 +1,36 @@
+@import "breeze-dark.rasi"
+
+#window {
+  width: 20%;
+  height: 50px;
+  border: 1;
+  border-radius: 3;
+  padding: 5;
+}
+
+#mainbox {
+  orientation: vertical;
+  spacing: 0;
+  children: [ inputbar ]; /* Only show inputbar */
+}
+
+#listview {
+  enabled: false;
+  spacing: 0;
+  padding: 0;
+}
+
+#inputbar {
+  spacing: 0;
+  padding: 4;
+  children: [ prompt, entry ];
+}
+
+#prompt {
+  padding: 3 7 3 0;
+}
+
+#entry {
+  padding: 3;
+  border-radius: 2;
+}
