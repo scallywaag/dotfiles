@@ -84,18 +84,10 @@ local editor_cmd = terminal .. " -e " .. editor
 
 local mod = "Mod1"
 local super = "Mod4"
-local d1 = "DP-4"
-local d2 = "HDMI-0"
-local m1 = 9
+local m1 = 10
 local m2 = 11
 
 -- {{{ System settings
-awful.spawn.with_shell("sleep 1 && picom &")
-
--- set up monitors - left primary
-awful.spawn.with_shell("xrandr --output " .. d1 .. " --mode 1920x1080 --rate 240 --pos 0x0 --primary")
-awful.spawn.with_shell("xrandr --output " .. d2 .. " --mode 1920x1080 --rate 240 --pos 1920x0")
-
 -- set up mouse - remove acceleration (wired+wireless)
 awful.spawn.with_shell("xinput --set-prop " .. m1 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
 awful.spawn.with_shell("xinput --set-prop " .. m2 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
@@ -403,24 +395,24 @@ globalkeys = gears.table.join(
 
 	awful.key({ super }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
-	-- awful.key({ super }, "j", function()
-	-- 	awful.client.focus.byidx(1)
-	-- end, { description = "focus next by index", group = "client" }),
-	-- awful.key({ super }, "k", function()
-	-- 	awful.client.focus.byidx(-1)
-	-- end, { description = "focus previous by index", group = "client" }),
+	awful.key({ mod, "Shift" }, "j", function()
+		awful.client.focus.byidx(1)
+	end, { description = "focus next by index", group = "client" }),
+	awful.key({ mod, "Shift" }, "k", function()
+		awful.client.focus.byidx(-1)
+	end, { description = "focus previous by index", group = "client" }),
 
 	awful.key({ super }, "w", function()
 		mymainmenu:show()
 	end, { description = "show main menu", group = "awesome" }),
 
 	-- Layout manipulation
-	-- awful.key({ super, "Shift" }, "j", function()
-	-- 	awful.client.swap.byidx(1)
-	-- end, { description = "swap with next client by index", group = "client" }),
-	-- awful.key({ super, "Shift" }, "k", function()
-	-- 	awful.client.swap.byidx(-1)
-	-- end, { description = "swap with previous client by index", group = "client" }),
+	awful.key({ mod, "Ctrl" }, "j", function()
+		awful.client.swap.byidx(1)
+	end, { description = "swap with next client by index", group = "client" }),
+	awful.key({ mod, "Ctrl" }, "k", function()
+		awful.client.swap.byidx(-1)
+	end, { description = "swap with previous client by index", group = "client" }),
 	--
 	-- awful.key({ super, "Control" }, "j", function()
 	-- 	awful.screen.focus_relative(1)
