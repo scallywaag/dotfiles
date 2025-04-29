@@ -395,25 +395,52 @@ globalkeys = gears.table.join(
 
 	awful.key({ super }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
 
-	awful.key({ mod, "Shift" }, "j", function()
+	awful.key({ mod, "Shift" }, "l", function()
 		awful.client.focus.byidx(1)
 	end, { description = "focus next by index", group = "client" }),
-	awful.key({ mod, "Shift" }, "k", function()
+	awful.key({ mod, "Shift" }, "h", function()
 		awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
+
+	awful.key({ mod, "Shift" }, "j", function()
+		awful.client.focus.bydirection("down")
+		if client.focus then
+			client.focus:raise()
+		end
+	end, { description = "focus down by direction", group = "client" }),
+	awful.key({ mod, "Shift" }, "k", function()
+		awful.client.focus.bydirection("up")
+		if client.focus then
+			client.focus:raise()
+		end
+	end, { description = "focus up by direction", group = "client" }),
+
+	awful.key({ mod, "Shift" }, "`", function()
+		local cc = {}
+		for _, c in ipairs(client.get()) do
+			if awful.widget.tasklist.filter.currenttags(c, mouse.screen) then
+				cc[#cc + 1] = c
+			end
+		end
+		local new_focused = cc[1]
+		if new_focused then
+			client.focus = new_focused
+			new_focused:raise()
+		end
+	end, { description = "focus first", group = "client" }),
 
 	awful.key({ super }, "w", function()
 		mymainmenu:show()
 	end, { description = "show main menu", group = "awesome" }),
 
 	-- Layout manipulation
-	awful.key({ mod, "Ctrl" }, "j", function()
+	awful.key({ mod, "Ctrl" }, "l", function()
 		awful.client.swap.byidx(1)
 	end, { description = "swap with next client by index", group = "client" }),
-	awful.key({ mod, "Ctrl" }, "k", function()
+	awful.key({ mod, "Ctrl" }, "h", function()
 		awful.client.swap.byidx(-1)
 	end, { description = "swap with previous client by index", group = "client" }),
-	--
+
 	-- awful.key({ super, "Control" }, "j", function()
 	-- 	awful.screen.focus_relative(1)
 	-- end, { description = "focus the next screen", group = "screen" }),
