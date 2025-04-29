@@ -86,8 +86,8 @@ local mod = "Mod1"
 local super = "Mod4"
 local d1 = "DP-4"
 local d2 = "HDMI-0"
-local m1 = 10
-local m2 = 16
+local m1 = 9
+local m2 = 11
 
 -- {{{ System settings
 awful.spawn.with_shell("sleep 1 && picom &")
@@ -97,8 +97,8 @@ awful.spawn.with_shell("xrandr --output " .. d1 .. " --mode 1920x1080 --rate 240
 awful.spawn.with_shell("xrandr --output " .. d2 .. " --mode 1920x1080 --rate 240 --pos 1920x0")
 
 -- set up mouse - remove acceleration (wired+wireless)
-awful.spawn.with_shell("xinput --set-prop " .. m1 .. " 338 0, 1")
-awful.spawn.with_shell("xinput --set-prop " .. m2 .. " 338 0, 1")
+awful.spawn.with_shell("xinput --set-prop " .. m1 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
+awful.spawn.with_shell("xinput --set-prop " .. m2 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
 awful.spawn.with_shell("xsetroot -cursor_name left_ptr")
 
 -- set up keyboard
