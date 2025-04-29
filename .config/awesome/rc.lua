@@ -379,10 +379,15 @@ root.buttons(gears.table.join(
 -- }}}
 
 -- {{{ Key bindings
+-- TODO: split keybinds between apps and client/tag control
 globalkeys = gears.table.join(
 	awful.key({ mod }, "/", function()
 		awful.spawn("rofi -show drun -show-icons")
 	end, { description = "rofi app launcher", group = "launcher" }),
+
+	awful.key({ super }, "l", function()
+		awful.spawn("betterlockscreen -l")
+	end, { description = "lock screen", group = "launcher" }),
 
 	awful.key({ mod }, "F1", function()
 		awful.spawn("kitty --class customterm -T btopkitty -e btop")
