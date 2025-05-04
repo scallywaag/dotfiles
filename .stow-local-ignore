@@ -1,5 +1,4 @@
 # Defaults 
-
 RCS
 .+,v
 
@@ -24,4 +23,5 @@ _darcs
 
 # Custom
 system
+\.config/i3.* # i3 backup config
 
