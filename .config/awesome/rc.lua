@@ -21,6 +21,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- HACK: custom tasklist with client class instead of client name
 local tasklistc = require("tasklistc")
 
+local home = os.getenv("HOME")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -227,7 +229,7 @@ local function set_wallpaper(s)
 	-- 	end
 	-- 	-- gears.wallpaper.maximized(wallpaper, s, true)
 	-- end
-	awful.spawn.with_shell("feh --bg-scale /home/patrik/Pictures/Wallpapers/KDE_Altai_5120x2880.png")
+	awful.spawn.with_shell("feh --bg-scale " .. home .. "/Pictures/Wallpapers/KDE_Altai_5120x2880.png")
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -431,7 +433,7 @@ globalkeys = gears.table.join(
 	end, { description = "lock screen", group = "launcher" }),
 
 	awful.key({ mod }, "F1", function()
-		awful.spawn("kitty --class customterm -T btopkitty -e btop")
+		awful.spawn("kitty --class customterm -T btopkitty -e btop -c " .. home .. "/.config/btop/btop-widget.conf")
 	end, { description = "launch btop kitty in top-right corner", group = "launcher" }),
 
 	-- awful.key({ super }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
