@@ -85,7 +85,7 @@ local editor_cmd = terminal .. " -e " .. editor
 local mod = "Mod1"
 local super = "Mod4"
 local m1 = 10
-local m2 = 11
+local m2 = 18
 
 -- {{{ System settings
 -- set up mouse - remove acceleration (wired+wireless)
@@ -96,6 +96,11 @@ awful.spawn.with_shell("xsetroot -cursor_name left_ptr")
 -- set up keyboard
 awful.spawn.with_shell("xset r rate 300 50")
 awful.spawn.with_shell("xmodmap ~/.config/.Xmodmap")
+
+-- turn off screen blanking and DPMS
+awful.spawn.with_shell("xset s off")
+awful.spawn.with_shell("xset s noblank")
+awful.spawn.with_shell("xset -dpms")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
