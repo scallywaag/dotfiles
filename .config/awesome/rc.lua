@@ -381,15 +381,33 @@ end)
 root.buttons(gears.table.join(
 	awful.button({}, 3, function()
 		mymainmenu:toggle()
-	end),
-	awful.button({}, 4, awful.tag.viewnext),
-	awful.button({}, 5, awful.tag.viewprev)
+	end)
+	-- awful.button({}, 4, awful.tag.viewnext),
+	-- awful.button({}, 5, awful.tag.viewprev)
 ))
 -- }}}
 
 -- {{{ Key bindings
 -- TODO: split keybinds between apps and client/tag control
 globalkeys = gears.table.join(
+	-- awful.key({ mod }, "Tab", function()
+	-- 	local screen = awful.screen.focused()
+	-- 	local tag_count = #screen.tags
+	-- 	local new_index = (screen.selected_tag.index - 2) % tag_count + 1
+	-- 	local tag = screen.tags[new_index]
+	-- 	if tag then
+	-- 		tag:view_only()
+	-- 	end
+	-- end, { description = "view previous tag", group = "tag" }),
+	--
+	-- awful.key({ mod }, "\\", function()
+	-- 	local screen = awful.screen.focused()
+	-- 	local tag = screen.tags[(screen.selected_tag.index % #screen.tags) + 1]
+	-- 	if tag then
+	-- 		tag:view_only()
+	-- 	end
+	-- end, { description = "view next tag", group = "tag" }),
+
 	awful.key({ super, "Shift" }, "Return", function()
 		awful.spawn.easy_async_with_shell(
 			[[rofi -dmenu -p "Insert label:" -theme ~/.config/rofi/prompt.rasi]],
