@@ -170,6 +170,10 @@ local systray_container = wibox.container.place(mysystray)
 local mytextclock = wibox.widget.textclock()
 mytextclock.font = "Noto Sans Mono 12"
 
+mytextclock:buttons(awful.util.table.join(awful.button({}, 1, function()
+	awful.spawn("galendae")
+end)))
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
 	awful.button({}, 1, function(t)
