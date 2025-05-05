@@ -88,6 +88,11 @@ local mod = "Mod1"
 local super = "Mod4"
 local m1 = 10
 local m2 = 18
+local font_name = "Noto Sans Mono Medium"
+
+local function set_font(name, size)
+	return name .. " " .. size
+end
 
 -- {{{ System settings
 -- set up mouse - remove acceleration (wired+wireless)
@@ -170,7 +175,7 @@ local systray_container = wibox.container.place(mysystray)
 -- {{{ Wibar
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
-mytextclock.font = "Noto Sans Mono 12"
+mytextclock.font = set_font(font_name, 12)
 
 mytextclock:buttons(awful.util.table.join(awful.button({}, 1, function()
 	awful.spawn("galendae")
@@ -284,7 +289,7 @@ awful.screen.connect_for_each_screen(function(s)
 		filter = awful.widget.taglist.filter.all,
 		buttons = taglist_buttons,
 		style = {
-			font = "Noto Sans Mono 12",
+			font = set_font(font_name, 12),
 			fg_focus = "#000",
 			bg_focus = "#8CC2E1",
 		},
@@ -313,7 +318,7 @@ awful.screen.connect_for_each_screen(function(s)
 			shape = gears.shape.rectangle,
 			shape_border_width = 2,
 			shape_border_color = "#222",
-			font = "Noto Sans Mono 9",
+			font = set_font(font_name, 9),
 			fg_focus = "#000",
 			bg_focus = "#8CC2E1",
 			-- bg_normal = "#444",
