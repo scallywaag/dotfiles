@@ -121,6 +121,16 @@ export GOBIN=$HOME/.local/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls='ls --group-directories-first --color=auto'
+
+dpg() {
+  if [ $# -ne 3 ]; then
+    echo "Usage: dpg <container_id_or_name> <username> <database>"
+    return 1
+  fi
+  # TODO: remove sudo after restart (user will be added to docker group)
+  sudo docker exec -it "$1" psql -U "$2" -d "$3"
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
