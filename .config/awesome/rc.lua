@@ -234,7 +234,7 @@ local function set_wallpaper(s)
 	-- 	end
 	-- 	-- gears.wallpaper.maximized(wallpaper, s, true)
 	-- end
-	awful.spawn.with_shell("feh --bg-scale " .. home .. "/Pictures/Wallpapers/KDE_Altai_5120x2880.png")
+	awful.spawn.with_shell("feh --bg-scale " .. home .. "/pictures/Wallpapers/KDE_Altai_5120x2880.png")
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -330,11 +330,21 @@ awful.screen.connect_for_each_screen(function(s)
 		widget_template = {
 			{
 				{
+					-- {
+					-- 	{
+					-- 		id = "icon_role",
+					-- 		widget = wibox.widget.imagebox,
+					-- 		forced_width = 20,
+					-- 		forced_height = 20,
+					-- 	},
+					-- 	widget = wibox.container.place,
+					-- },
 					{
 						id = "text_role",
 						widget = wibox.widget.textbox,
 					},
 					layout = wibox.layout.fixed.horizontal,
+					spacing = 5,
 				},
 				left = 10,
 				right = 10,
