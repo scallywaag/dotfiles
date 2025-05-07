@@ -122,6 +122,7 @@ export GOBIN=$HOME/.local/bin
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='ls --group-directories-first --color=auto'
+alias ff='fastfetch'
 
 # TODO: move to some other file
 dpg() {
@@ -140,3 +141,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(zoxide init zsh)"
+
