@@ -1,5 +1,5 @@
 function OpenOrCreateNotes()
-  local notes_path = './NOTES.md'
+  local notes_path = './notes.md'
   if vim.fn.filereadable(notes_path) == 0 then
     vim.cmd('silent !touch ' .. notes_path)
     print('Created ' .. notes_path)
