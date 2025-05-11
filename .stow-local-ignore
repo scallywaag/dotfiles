@@ -25,4 +25,5 @@ _darcs
 system
 \.config/i3.* # i3 backup config
 notes
+\.ssh
 
