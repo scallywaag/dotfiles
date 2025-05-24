@@ -21,6 +21,7 @@ export GOBIN=$HOME/.local/bin
 
 # aliases
 alias ls='ls --group-directories-first --color=tty'
+alias grep='grep --color=auto'
 alias vim='nvim'
 alias ff='fastfetch'
 alias wttr='curl wttr.in/timisoara'
