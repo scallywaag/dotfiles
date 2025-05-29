@@ -73,6 +73,9 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- HACK: add gap
 beautiful.useless_gap = 1
 
+-- HACK: set notif icon size
+naughty.config.defaults.icon_size = 32
+
 -- HACK: desktop indicator underline bar
 local theme_dir = os.getenv("HOME") .. "/.config/awesome/"
 beautiful.taglist_squares_sel = theme_dir .. "bar31.png"
@@ -234,7 +237,7 @@ local function set_wallpaper(s)
 	-- 	end
 	-- 	-- gears.wallpaper.maximized(wallpaper, s, true)
 	-- end
-	awful.spawn.with_shell("feh --bg-scale " .. home .. "/pictures/Wallpapers/KDE_Altai_5120x2880.png")
+	awful.spawn.with_shell("feh --bg-scale " .. home .. "/pictures/wallpapers/KDE_Altai_5120x2880.png")
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
