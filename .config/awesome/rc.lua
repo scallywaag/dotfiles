@@ -89,7 +89,7 @@ local editor_cmd = terminal .. " -e " .. editor
 
 local mod = "Mod1"
 local super = "Mod4"
-local m1 = 10
+local m1 = 11
 local m2 = 18
 local font_name = "Noto Sans Mono Medium"
 
@@ -600,19 +600,19 @@ globalkeys = gears.table.join(
 	end, { description = "flameshot", group = "launcher" }),
 
 	awful.key({ super }, "j", function()
-		awful.spawn("flameshot full --region 1920x1080+0+0")
-	end, { description = "flameshot", group = "launcher" }),
-
-	awful.key({ super, "Shift" }, "j", function()
 		awful.spawn("flameshot full --region 1920x1080+0+0 -c")
 	end, { description = "flameshot", group = "launcher" }),
 
+	awful.key({ super, "Shift" }, "j", function()
+		awful.spawn("flameshot full --region 1920x1080+0+0")
+	end, { description = "flameshot", group = "launcher" }),
+
 	awful.key({ super }, "k", function()
-		awful.spawn("flameshot full --region 1920x1080+1920+0")
+		awful.spawn("flameshot full --region 1920x1080+1920+0 -c")
 	end, { description = "flameshot", group = "launcher" }),
 
 	awful.key({ super, "Shift" }, "k", function()
-		awful.spawn("flameshot full --region 1920x1080+1920+0 -c")
+		awful.spawn("flameshot full --region 1920x1080+1920+0")
 	end, { description = "flameshot", group = "launcher" }),
 
 	awful.key({ super }, "e", function()
