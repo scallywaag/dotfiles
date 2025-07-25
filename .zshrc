@@ -8,10 +8,13 @@ fi
 
 # zsh
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+setopt nocaseglob
+setopt nocasematch
 
 # paths
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH" # php
 
 export XCURSOR_PATH="${XCURSOR_PATH}:/usr/share/icons"
 export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
@@ -22,9 +25,9 @@ export GOBIN=$HOME/.local/bin
 # aliases
 alias ls='ls --group-directories-first --color=tty'
 alias grep='grep --color=auto'
-alias vim='nvim'
 alias ff='fastfetch'
 alias wttr='curl wttr.in/timisoara'
+alias tree='tree --dirsfirst -I ".git|node_modules|dist"'
 
 # misc
 export LESS="-R -M"
@@ -43,6 +46,10 @@ dpg() {
   fi
   docker exec -it "$1" psql -U "$2" -d "$3"
 }
+
+# terminal quit
+setopt ignore_eof
+alias q='exit'
 
 # p10k
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
