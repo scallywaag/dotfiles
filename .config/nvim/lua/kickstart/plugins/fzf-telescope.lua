@@ -1,7 +1,6 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
-  branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -77,21 +76,21 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[H]elp' })
-    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[K]eymaps' })
-    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[F]iles' })
+    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Help' })
+    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Keymaps' })
+    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Files' })
     vim.keymap.set('n', '<leader>sa', function()
       builtin.find_files {
         no_ignore = true,
         no_ignore_parent = true,
         hidden = true,
       }
-    end, { desc = '[A]ll Files' })
-    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]elect Telescope' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[G]rep' })
-    vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[D]iagnostics' })
-    vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[R]esume' })
+    end, { desc = 'All Files' })
+    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = 'Select Telescope' })
+    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Current Word' })
+    vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Grep' })
+    vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Diagnostics' })
+    vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Resume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = 'Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Search: Find existing buffers' })
 
@@ -111,11 +110,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
       }
-    end, { desc = '[/] in Open Files' })
+    end, { desc = 'Grep in Open Files' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[N]eovim files' })
+    end, { desc = 'Neovim files' })
   end,
 }
