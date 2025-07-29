@@ -57,6 +57,7 @@ return {
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
+        -- this errors sometimes and ruins all keybinds
         vim.keymap.del('n', 'grn')
         vim.keymap.del('n', 'gra')
         vim.keymap.del('v', 'gra')
