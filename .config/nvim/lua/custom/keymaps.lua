@@ -1,15 +1,3 @@
-function OpenOrCreateNotes()
-  local notes_path = './notes.md'
-  if vim.fn.filereadable(notes_path) == 0 then
-    vim.cmd('silent !touch ' .. notes_path)
-    print('Created ' .. notes_path)
-  end
-  vim.cmd('e ' .. notes_path)
-end
-
--- Open (create if necessary) a notes file in the cwd
-vim.keymap.set('n', '<leader>n', OpenOrCreateNotes, { desc = 'Open [N]otes file', noremap = true, silent = true })
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -23,3 +11,29 @@ end, { desc = '[R]elative line numbering' })
 
 -- Zen mode
 vim.keymap.set('n', '<leader>mz', ':Zen<CR>', { desc = '[Z]en Mode' })
+
+local function simple_log_insert()
+  local ft = vim.bo.filetype
+  local statement
+
+  if ft == 'go' then
+    statement = 'fmt.Println()'
+  elseif ft == 'javascript' or ft == 'typescript' then
+    statement = 'console.log()'
+  elseif ft == 'python' then
+    statement = 'print()'
+  else
+    statement = 'print()'
+  end
+
+  -- Insert on new line below and place cursor inside ()
+  local row = vim.api.nvim_win_get_cursor(0)[1]
+  vim.api.nvim_buf_set_lines(0, row, row, false, { statement })
+
+  -- Position cursor inside the ()
+  local col = #statement - 1 -- before the closing parenthesis
+  vim.api.nvim_win_set_cursor(0, { row + 1, col })
+  vim.cmd 'startinsert'
+end
+
+vim.keymap.set('n', '<leader>l', simple_log_insert, { desc = 'Log Message' })
