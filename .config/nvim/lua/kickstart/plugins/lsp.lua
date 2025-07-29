@@ -15,6 +15,7 @@ return {
     'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
+    -- this errors sometimes and ruins all keybinds
     -- Brief aside: **What is LSP?**
     --
     -- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -56,17 +57,6 @@ return {
           mode = mode or 'n'
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
-
-        -- this errors sometimes and ruins all keybinds
-        vim.keymap.del('n', 'grn')
-        vim.keymap.del('n', 'gra')
-        vim.keymap.del('v', 'gra')
-        vim.keymap.del('n', 'grr')
-        vim.keymap.del('n', 'gri')
-        vim.keymap.del('n', 'grt')
-        vim.keymap.del('n', 'gO')
-        vim.keymap.del('v', 'an')
-        vim.keymap.del('v', 'in')
 
         -- Jump to the definition of the word under your cursor.
         --  This is where a variable was first declared, or where a function is defined, etc.

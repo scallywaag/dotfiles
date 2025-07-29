@@ -34,3 +34,31 @@ vim.api.nvim_create_autocmd(
   { 'FileChangedShellPost' },
   { command = 'echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None', pattern = { '*' } }
 )
+
+-- Delete default lsp keymaps
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('CustomLspCleanup', { clear = true }),
+  callback = function(args)
+    vim.schedule(function()
+      local buf = args.buf
+
+      -- List of bindings to remove
+      local to_delete = {
+        { 'n', 'grn' },
+        { 'n', 'gra' },
+        { 'v', 'gra' },
+        { 'n', 'grr' },
+        { 'n', 'gri' },
+        { 'n', 'grt' },
+        { 'n', 'gO' },
+        { 'v', 'an' },
+        { 'v', 'in' },
+      }
+
+      for _, map in ipairs(to_delete) do
+        local mode, lhs = unpack(map)
+        pcall(vim.keymap.del, mode, lhs, { buffer = buf })
+      end
+    end)
+  end,
+})
