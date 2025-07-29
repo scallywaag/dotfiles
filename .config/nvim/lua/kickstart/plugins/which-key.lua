@@ -41,7 +41,6 @@ return { -- Useful plugin to show you pending keybinds.
     },
 
     spec = {
-      { '<leader>q', group = 'Quit' }, -- ??
       { '<leader>t', group = 'Toggle' },
       { '<leader>s', group = 'Search' },
       { '<leader>g', group = 'Git' },
