@@ -101,5 +101,25 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+
+    dap.adapters['pwa-node'] = {
+      type = 'server',
+      host = 'localhost',
+      port = '${port}',
+      executable = {
+        command = 'node',
+        args = { vim.fn.expand '~/.local/share/js-debug/src/dapDebugServer.js', '${port}' },
+      },
+    }
+
+    dap.configurations.javascript = {
+      {
+        type = 'pwa-node',
+        request = 'launch',
+        name = 'Launch file',
+        program = '${file}',
+        cwd = '${workspaceFolder}',
+      },
+    }
   end,
 }
