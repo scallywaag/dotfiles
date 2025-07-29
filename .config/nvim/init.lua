@@ -20,15 +20,18 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     error('Error cloning lazy.nvim:\n' .. out)
   end
-end ---@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
+end
+
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup {
   require 'kickstart.plugins.lazydev',
   require 'kickstart.plugins.luvit-meta',
   require 'kickstart.plugins.gitsigns',
-  require 'kickstart.plugins.vim-sleuth',
+  require 'kickstart.plugins.guess-indent',
   require 'kickstart.plugins.vim-fugitive',
   require 'kickstart.plugins.autocompletion',
   require 'kickstart.plugins.autoformat',
@@ -39,7 +42,8 @@ require('lazy').setup {
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.which-key',
   require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  -- require 'kickstart.plugins.vim-sleuth',
+  -- require 'kickstart.plugins.indent-line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
