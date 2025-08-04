@@ -92,6 +92,7 @@ local super = "Mod4"
 local m0 = 10
 local m1 = 11
 local m2 = 18
+local m3 = 19
 local font_name = "Noto Sans Mono Medium"
 
 local function set_font(name, size)
@@ -103,6 +104,7 @@ end
 awful.spawn.with_shell("xinput --set-prop " .. m0 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
 awful.spawn.with_shell("xinput --set-prop " .. m1 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
 awful.spawn.with_shell("xinput --set-prop " .. m2 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
+awful.spawn.with_shell("xinput --set-prop " .. m3 .. " 'libinput Accel Profile Enabled' 0, 1, 0")
 awful.spawn.with_shell("xsetroot -cursor_name left_ptr")
 
 -- set up keyboard
@@ -594,8 +596,8 @@ globalkeys = gears.table.join(
 	end, { description = "pavucontrol", group = "launcher" }),
 
 	awful.key({ super }, "b", function()
-		awful.spawn("google-chrome-stable")
-	end, { description = "google-chrome", group = "launcher" }),
+		awful.spawn("brave")
+	end, { description = "brave", group = "launcher" }),
 
 	awful.key({ super }, "s", function()
 		awful.spawn("flameshot gui")
