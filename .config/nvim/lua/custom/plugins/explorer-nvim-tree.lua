@@ -1,5 +1,6 @@
 return {
   'nvim-tree/nvim-tree.lua',
+  enabled = enabled 'nvim_tree',
   version = '*',
   lazy = false,
   dependencies = {
@@ -14,5 +15,5 @@ return {
     }
   end,
 
-  vim.keymap.set('n', '<leader>te', ':NvimTreeToggle<CR>', { desc = '[E]xplorer' }),
+  vim.keymap.set('n', '<leader>te', ':NvimTreeToggle<CR>', { desc = 'Explorer' }),
 }

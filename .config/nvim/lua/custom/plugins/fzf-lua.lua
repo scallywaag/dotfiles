@@ -1,5 +1,6 @@
 return {
   'ibhagwan/fzf-lua',
+  enabled = enabled 'fzf_lua',
   event = 'VimEnter',
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },

@@ -1,2 +1,5 @@
 -- look into it https://github.com/mbbill/undotree
-return {}
+return {
+  'mbbill/undotree',
+  enabled = enabled 'undotree',
+}
