@@ -141,5 +141,5 @@ return { -- Autocompletion
     end, {})
   end,
 
-  vim.keymap.set('n', '<leader>ta', ':ToggleAutoComplete<CR>', { desc = '[A]uto Completions' }),
+  vim.keymap.set('n', '<leader>ta', ':ToggleAutoComplete<CR>', { desc = 'Auto Completions' }),
 }
