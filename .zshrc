@@ -12,7 +12,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 setopt nocaseglob
 setopt nocasematch
 # disable XON/XOFF (<C-s>)
-stty -ixon
+if [[ -t 0 ]]; then
+  stty -ixon
+fi
 
 # paths
 export PATH="$HOME/.local/bin:$PATH"
