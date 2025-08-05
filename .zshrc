@@ -11,6 +11,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 setopt nocaseglob
 setopt nocasematch
+# disable XON/XOFF (<C-s>)
+stty -ixon
 
 # paths
 export PATH="$HOME/.local/bin:$PATH"
