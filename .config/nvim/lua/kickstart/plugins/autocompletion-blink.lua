@@ -82,8 +82,8 @@ return { -- Autocompletion
       ['<Tab>'] = { 'snippet_forward', 'fallback' },
       ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 
-      --TODO: test this, maybe it's better than shift-K in normal mode
       -- ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+      ['<C-x>'] = { 'show_signature', 'hide_signature', 'fallback' },
 
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
