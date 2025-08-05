@@ -8,5 +8,5 @@ return {
     vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
     vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
   end,
-  vim.keymap.set('n', '<leader>mp', ':PeekOpen<CR>', { desc = '[P]review Markdown' }),
+  vim.keymap.set('n', '<leader>mp', ':PeekOpen<CR>', { desc = 'Preview Markdown' }),
 }
