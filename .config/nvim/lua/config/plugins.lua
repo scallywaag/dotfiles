@@ -1,42 +1,65 @@
 -- [[ Define enabled plugins ]]
 local plugin_enabled = {
-  -- kickstart
-  lazydev = true, -- desc of what each does maybe
-  luvit = true,
-  gitsigns = true,
-  vim_fugitive = true,
+  -- autocompletion
   blink_cmp = true,
   nvim_cmp = false,
-  autoformat = true,
-  fzf_telescope = true,
-  lsp = true,
-  mini = true,
-  todo_comments = true,
-  treesitter = true,
-  which_key = true,
-  debug = false,
-  vim_sleuth = true, -- Detect tabstop and shiftwidth automatically
-  guess_indent = false, -- Tabstops, faster but a more buggy than vim_sleuth
-  indent_line = false, -- Add indentation guides even on blank lines
-  lint = false,
-  autopairs = false,
-  neo_tree = false,
 
-  -- custom
-  colorizer = true,
-  nvim_tree = true,
-  flash = true,
-  oil = true,
-  peek = false,
-  tokyonight = true,
-  trouble = true,
-  zenmode = true,
-  diffview = true,
-  fzf_lua = false,
+  -- debug
+  debug = false,
+
+  -- formatting
+  autoformat = true,
+  autopairs = false,
   splitjoin = false,
-  undotree = false,
+
+  -- fzf
+  fzf_lua = false,
+  telescope = true,
+
+  -- git
+  diffview = true,
+  gitsigns = true,
+  vim_fugitive = true,
+
+  -- indentation
+  guess_indent = false,
+  indent_line = false,
+  vim_sleuth = true,
+
+  -- linting
+  lint = false,
+
+  -- lsp
+  lazydev = true,
+  lsp = true,
   lsp_signature = false,
+  trouble = true,
+
+  -- misc
+  colorizer = true,
+  luvit = true,
+  mini = true,
+  flash = true,
+  peek = false,
+  todo_comments = true,
+  which_key = true,
+
+  -- syntax
+  treesitter = true,
+
+  -- themes
+  tokyonight = true,
+
+  -- ui
+  neo_tree = false,
+  nvim_tree = true,
   barbar = false,
+  oil = true,
+  zenmode = true,
+
+  --
+  -- experimental
+  undotree = false,
 }
 
 _G.plugin_enabled = plugin_enabled

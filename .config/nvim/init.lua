@@ -11,6 +11,5 @@
 
 require 'config'
 require('lazy').setup {
-  require 'kickstart.plugins',
-  require 'custom.plugins',
+  require 'plugins',
 }
