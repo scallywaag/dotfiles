@@ -60,6 +60,7 @@ local plugin_enabled = {
   --
   -- experimental
   undotree = false,
+  love = true,
 }
 
 _G.plugin_enabled = plugin_enabled

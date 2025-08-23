@@ -3,7 +3,7 @@ return { -- Useful plugin to show you pending keybinds.
   enabled = enabled 'which_key',
   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
   opts = {
-    delay = 0,
+    delay = 500,
     icons = {
       -- set icon mappings to true if you have a Nerd Font
       -- mappings = vim.g.have_nerd_font,
@@ -48,14 +48,8 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>g', group = 'Git' },
       { '<leader>x', group = 'Trouble' },
       { '<leader>m', group = 'Misc' },
-      { '<leader>d', name = 'Document Symbols' },
-      { '<leader>ds', name = 'Document Symbols' },
-      { '<leader>w', name = 'Workspace Symbols' },
-      { '<leader>ws', name = 'Workspace Symbols' },
-      { '<leader>c', name = 'Code Actions' },
-      { '<leader>ca', name = 'Code Actions' },
-      { '<leader>r', name = 'Rename' },
-      { '<leader>rn', name = 'Rename' },
+      { '<leader>l', group = 'Lsp' },
+      { '<leader>v', group = 'Love2d' },
     },
   },
 }

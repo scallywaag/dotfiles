@@ -65,10 +65,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.api.nvim_create_autocmd('CursorHold', {
   callback = function()
-    vim.diagnostic.open_float(nil, {
+    local float_opts = {
       focus = false,
       border = 'single',
       scope = 'cursor',
-    })
+    }
+    local _, win = vim.diagnostic.open_float(nil, float_opts)
+
+    if win then
+      -- Close the diagnostic float when moving, leaving buffer, or entering insert
+      vim.api.nvim_create_autocmd({ 'CursorMoved', 'BufHidden', 'InsertEnter' }, {
+        once = true,
+        callback = function()
+          if vim.api.nvim_win_is_valid(win) then
+            vim.api.nvim_win_close(win, true)
+          end
+        end,
+      })
+    end
   end,
 })

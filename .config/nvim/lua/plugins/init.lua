@@ -58,4 +58,5 @@ return {
   --
   -- plugins I plan on trying out - not integrated in config yet
   require 'plugins.experimental.undotree',
+  require 'plugins.experimental.love',
 }

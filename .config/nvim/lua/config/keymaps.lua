@@ -11,7 +11,7 @@ end, { desc = 'Relative line numbering' })
 -- Zen mode
 vim.keymap.set('n', '<leader>mz', ':Zen<CR>', { desc = 'Zen Mode' })
 
-vim.keymap.set('n', '<leader>l', funcs.simple_log_insert, { desc = 'Log Message' })
+vim.keymap.set('n', '<leader>ml', funcs.simple_log_insert, { desc = 'Log Message' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
