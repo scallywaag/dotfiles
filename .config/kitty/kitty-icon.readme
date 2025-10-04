@@ -1,0 +1,2 @@
+Edit your "~/.local/share/applications/kitty.desktop" file and set the Icon parameter to the full absolute path to the icon.png.
+
