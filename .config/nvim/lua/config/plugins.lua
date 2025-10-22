@@ -39,7 +39,7 @@ local plugin_enabled = {
   colorizer = true,
   luvit = true,
   mini = true,
-  flash = true,
+  flash = false,
   peek = false,
   todo_comments = true,
   which_key = true,
@@ -60,7 +60,7 @@ local plugin_enabled = {
   --
   -- experimental
   undotree = false,
-  love = true,
+  love = false,
 }
 
 _G.plugin_enabled = plugin_enabled
