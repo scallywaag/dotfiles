@@ -28,7 +28,7 @@ export PATH=$BIN:$PATH
 # go
 export GOPATH=$HOME/.go
 export GOBIN=$HOME/.local/bin
-export PATH=$GOBIN:$GOROOT/bin:$PATH
+export PATH=$GOBIN:$PATH
 
 ## aliases
 alias ls='ls --group-directories-first --color=tty'
