@@ -26,7 +26,6 @@ export BIN=$HOME/.local/bin
 export PATH=$BIN:$PATH
 
 # go
-export GOROOT=/usr/local/go
 export GOPATH=$HOME/.go
 export GOBIN=$HOME/.local/bin
 export PATH=$GOBIN:$GOROOT/bin:$PATH
