@@ -28,3 +28,13 @@ vim.keymap.set('n', '<C-=>', '<Cmd>vertical resize +20<CR>', { desc = 'Increase 
 vim.keymap.set('n', '<C-->', '<Cmd>vertical resize -20<CR>', { desc = 'Decrease window width' })
 
 vim.keymap.set('n', '<leader>d', funcs.show_diagnostic_float, { desc = 'Show diagnostics float' })
+
+-- Toggle cursorcolumn
+vim.keymap.set('n', '<leader>tk', function()
+  vim.opt.cursorcolumn = not vim.opt.cursorcolumn:get()
+end, { desc = 'Toggle cursorcolumn' })
+
+-- Toggle list (show whitespace characters)
+vim.keymap.set('n', '<leader>tl', function()
+  vim.opt.list = not vim.opt.list:get()
+end, { desc = 'Toggle listchars' })
