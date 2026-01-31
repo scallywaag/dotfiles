@@ -24,6 +24,7 @@ setopt ignore_eof
 ## env vars
 export BIN=$HOME/.local/bin
 export PATH=$BIN:$PATH
+export SDL_VIDEODRIVER="wayland,x11,windows"
 
 # go
 export GOPATH=$HOME/.go
@@ -33,19 +34,9 @@ export PATH=$GOBIN:$PATH
 ## aliases
 alias ls='ls --group-directories-first --color=tty'
 alias grep='grep --color=auto'
-alias ff='fastfetch'
 alias wttr='curl wttr.in/timisoara'
 alias tree='tree --dirsfirst -I ".git|node_modules|dist"'
 alias gt='grc go test ./...'
-
-## functions
-dpg() {
-  if [ $# -ne 3 ]; then
-    echo "Usage: dpg <container_id_or_name> <username> <database>"
-    return 1
-  fi
-  docker exec -it "$1" psql -U "$2" -d "$3"
-}
 
 ## init 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

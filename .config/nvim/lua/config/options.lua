@@ -81,3 +81,7 @@ vim.opt.expandtab = false
 -- disable netrw (for nvim-tree)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- used with CustomMarkdownColors autocmd
+vim.opt.conceallevel = 3
+vim.opt.concealcursor = 'nc'

@@ -24,8 +24,8 @@ vim.keymap.set('n', '<C-l>', '<C-w>w', { desc = 'Move focus to the next window' 
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('n', '<C-`>', '<Cmd>wincmd t<CR>', { desc = 'Go to first (top-left) window' })
-vim.keymap.set('n', '<C-=>', '<Cmd>vertical resize +20<CR>', { desc = 'Increase window width' })
-vim.keymap.set('n', '<C-->', '<Cmd>vertical resize -20<CR>', { desc = 'Decrease window width' })
+vim.keymap.set('n', '<C-=>', '<Cmd>vertical resize +50<CR>', { desc = 'Increase window width' })
+vim.keymap.set('n', '<C-->', '<Cmd>vertical resize -50<CR>', { desc = 'Decrease window width' })
 
 vim.keymap.set('n', '<leader>d', funcs.show_diagnostic_float, { desc = 'Show diagnostics float' })
 
