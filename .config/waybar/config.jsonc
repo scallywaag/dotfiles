@@ -77,7 +77,7 @@
         "persistent-only": false,
 	"persistent-workspaces": {
 	  "DP-3": [1,2,3,4,5,6],
-	  "HDMI-A-5": [7,8,9,10],
+	  "HDMI-A-1": [7,8,9,10],
 	  // "DP-3": [1,2,3,4,5,6],
 	  // "HDMI-A-1": [7,8,9,10],
 	}
