@@ -220,9 +220,11 @@
 
   ##################################[ dir: current directory ]##################################
   # Default current directory color.
+  #NOTE: mid part
+  #
   # typeset -g POWERLEVEL9K_DIR_FOREGROUND=31
-  
-  typeset -g POWERLEVEL9k_DIR_FOREGROUND=12
+  typeset -g POWERLEVEL9k_DIR_FOREGROUND=8
+
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
@@ -231,7 +233,6 @@
   # Color of the shortened directory segments.
   # typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=103
 
-  #NOTE: mid part???
   typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=12
 
   # Color of the anchor directory segments. Anchor segments are never shortened. The first

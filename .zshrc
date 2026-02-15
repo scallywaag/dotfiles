@@ -25,6 +25,7 @@ setopt ignore_eof
 export BIN=$HOME/.local/bin
 export PATH=$BIN:$PATH
 export SDL_VIDEODRIVER="wayland,x11,windows"
+export PAGER=less
 
 # go
 export GOPATH=$HOME/.go
