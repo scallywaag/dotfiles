@@ -223,7 +223,7 @@
   #NOTE: mid part
   #
   # typeset -g POWERLEVEL9K_DIR_FOREGROUND=31
-  typeset -g POWERLEVEL9k_DIR_FOREGROUND=8
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=8
 
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
