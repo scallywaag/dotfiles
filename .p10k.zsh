@@ -926,7 +926,7 @@
   # typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=180
 
   #NOTE: user@hostname color
-  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=10 #green
+  typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=10
   # Context format when running with privileges: bold user@hostname.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%B%n@%m'
   # Context format when in SSH without privileges: user@hostname.
