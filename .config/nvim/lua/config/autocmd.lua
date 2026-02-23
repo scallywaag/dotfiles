@@ -62,3 +62,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end)
   end,
 })
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.go',
+  callback = function()
+    -- Format the file
+    vim.lsp.buf.format { async = false }
+
+    -- Organize imports via gopls code action
+    vim.lsp.buf.code_action {
+      context = { only = { 'source.organizeImports' }, diagnostics = {} },
+      apply = true,
+    }
+  end,
+})
