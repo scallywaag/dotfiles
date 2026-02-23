@@ -63,16 +63,38 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   pattern = '*.go',
+--   callback = function()
+--     -- Format the file
+--     vim.lsp.buf.format { async = false }
+--
+--     -- Organize imports via gopls code action
+--     vim.lsp.buf.code_action {
+--       context = { only = { 'source.organizeImports' }, diagnostics = {} },
+--       apply = true,
+--     }
+--   end,
+-- })
+
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.go',
   callback = function()
-    -- Format the file
-    vim.lsp.buf.format { async = false }
+    local params = vim.lsp.util.make_range_params()
+    params.context = { only = { 'source.organizeImports' }, diagnostics = {} }
 
-    -- Organize imports via gopls code action
-    vim.lsp.buf.code_action {
-      context = { only = { 'source.organizeImports' }, diagnostics = {} },
-      apply = true,
-    }
+    local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 3000)
+    for cid, res in pairs(result or {}) do
+      for _, action in pairs(res.result or {}) do
+        if action.edit then
+          vim.lsp.util.apply_workspace_edit(action.edit, vim.lsp.get_client_by_id(cid).offset_encoding)
+        elseif action.command then
+          vim.lsp.buf.execute_command(action.command)
+        end
+      end
+    end
+
+    -- Format after organizing imports
+    vim.lsp.buf.format { async = false }
   end,
 })
