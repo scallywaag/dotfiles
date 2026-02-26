@@ -240,7 +240,7 @@
   # typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=39
   
   #NOTE: first and last segment
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=12
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=4
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   # Don't shorten directories that contain any of these files. They are anchors.
