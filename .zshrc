@@ -38,6 +38,7 @@ alias grep='grep --color=auto'
 alias wttr='curl wttr.in/timisoara'
 alias tree='tree --dirsfirst -I ".git|node_modules|dist"'
 alias gt='grc go test ./...'
+alias note='nvim NOTES.md'
 
 ## init 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
